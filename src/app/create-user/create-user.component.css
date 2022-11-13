@@ -1,0 +1,28 @@
+.create-user-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+
+.example-50-width {
+    width: 48%;
+}
+
+.container{
+    display: grid; 
+    align-items: center; 
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.socialskills-chip-list {
+    width: 100%;
+  }
+
+.container .mat-form-field {
+margin-left: 10px;
+}

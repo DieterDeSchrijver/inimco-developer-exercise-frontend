@@ -1,0 +1,61 @@
+<div class="container">
+    <h1 style="text-align: center;">Inimco Developer Exercise</h1>
+    <form [formGroup]="formdata" class="create-user-form" (ngSubmit)="onSubmit(formdata)">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" matInput placeholder="Ex. Dieter" value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" matInput placeholder="Ex. De Schrijver">
+        </mat-form-field>
+
+        <!-- social skills-->
+        <mat-form-field class="socialskills-chip-list" appearance="fill">
+            <mat-label>Social Skills</mat-label>
+            <mat-chip-list #chipList aria-label="Social Skill selection">
+                <mat-chip *ngFor="let socialSkill of socialSkills" (removed)="remove(socialSkill)">
+                    {{socialSkill}}
+                    <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip>
+                <input placeholder="New social skill..." [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+        </mat-form-field>
+
+        <!-- social accounts-->
+        <div *ngFor="let control of socialAccountsAsArray.controls ; let i = index" formArrayName='socialAccounts'>
+
+            <div formGroupName="{{i}}">
+                <mat-form-field class="example-50-width" appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <mat-select formControlName="type">
+                        <mat-option>None</mat-option>
+                        <mat-option *ngFor="let type of accountTypes" [value]="type">{{type}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-50-width" appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input formControlName="address" matInput placeholder="www.linkedin.com/dieterds">
+                </mat-form-field>
+            </div>
+        </div>
+        <button type="button" (click)="addAccount()" style="margin-left: 10px;" mat-mini-fab color="primary"
+            aria-label="">
+            <mat-icon>add</mat-icon>
+        </button>
+        <div style="margin-top: 5em; margin-left: 10px">
+            <button type="submit" mat-raised-button color="primary">Create User</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    {{response | json}}
+</div>
