@@ -45,16 +45,18 @@
                 </mat-form-field>
             </div>
         </div>
-        <button type="button" (click)="addAccount()" style="margin-left: 10px;" mat-mini-fab color="primary"
+
+        <button type="button" matTooltip="Add a social account"
+        (click)="addAccount()" style="margin-left: 10px;" mat-mini-fab color="primary"
             aria-label="">
             <mat-icon>add</mat-icon>
         </button>
+
         <div style="margin-top: 5em; margin-left: 10px">
             <button type="submit" mat-raised-button color="primary">Create User</button>
         </div>
     </form>
 </div>
-
 
 <div class="container">
     {{response | json}}

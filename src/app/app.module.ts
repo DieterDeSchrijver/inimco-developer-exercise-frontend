@@ -13,6 +13,8 @@ import {  MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

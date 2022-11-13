@@ -46,8 +46,6 @@ export class CreateUserComponent implements OnInit {
       socialAccounts: this.formBuilder.array([])
     })
 
-
-
   }
 
   get socialAccountsAsArray(): any {
@@ -57,7 +55,6 @@ export class CreateUserComponent implements OnInit {
   getSocialAccountTypes(): void {
     this.createUserService.getSocialAccountTypes()
     .subscribe(types => this.accountTypes = types);
-    console.log(this.accountTypes)
   }
 
   add(event: MatChipInputEvent): void {
